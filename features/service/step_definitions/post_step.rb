@@ -1,18 +1,19 @@
-require_relative '../objects/aprovar_reprovar_documento.rb'
-retorno = AprovarReprovarDocumento.new
+require_relative '../objects/post.rb'
+retorno = Post.new
 
-Dado("que eu solicite a aprovacao do documento {int} com a descricao {string}") do |int, string|
-   @servico = retorno.servico_aprovar_documento(int, string)
+Dado("que eu usuário cadastro o cpf {int}") do |int|
+    @servico = retorno.que_eu_usuário_cadastro_o_cpf (int)
 end
 
-Entao("sistema me retorna a aprovacao com sucesso") do
-    expect(@servico.code).to eq (200)
+Entao("sistema me retorna informações do CPF cadastrado") do
+    expect(@servico.code).to eq(200)
 end
 
-Dado("que eu solicite a reprovacao do documento {int} com a descricao {string}") do |int, string|
-    @servico = retorno.servico_reprovar_documento(int, string)
-end
+#ALGUNS EXEMPLOS DE VALIDAÇÕES
 
-Entao("sistema me retorna a reprovacao com sucesso") do
-    expect(@servico.code).to eq (200)
-end
+#expect(@servico.parsed_response.to_s).to include("abcd")
+#expect(@servico.parsed_response.to_s).not_to include("abcd") 
+#expect(@servico.parsed_response).to be true
+#expect(@servico.parsed_response).to be false
+#expect(@servico.body).not_to eq("abcd")
+#expect(@servico.empty?).to be false

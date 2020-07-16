@@ -1,4 +1,4 @@
-class BuscarDocumentoPendenteFiltrado
+class Get
     include HTTParty
     base_uri $environment['url_base_api']
     format :json

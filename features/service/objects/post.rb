@@ -1,4 +1,4 @@
-class AprovarReprovarDocumento
+class Post
     include HTTParty
     base_uri $environment['url_base_api']
     format :json

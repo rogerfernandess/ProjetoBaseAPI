@@ -1,66 +1,19 @@
-require_relative '../objects/buscar_documento_pendente_filtrado.rb'
-retorno = BuscarDocumentoPendenteFiltrado.new
+require_relative '../objects/get.rb'
+retorno = Get.new
 
-Dado("que eu usuário do cpf {string} solicite consultar um documento de status {int} da categoria {int} cliente preenchendo os campos dinâmicos {string}") do |string, int, int2, string2|
-    @servico = retorno.buscar_documento_pendente_filtrado_cliente(string, int, int2, string2)
+Dado("que eu usuário consulte o cpf {int}") do |int|
+    @servico = retorno.que_eu_usuário_consulte_o_cpf (int)
 end
 
-Entao("sistema me retorna o documento específico de cliente caso o mesmo exista") do
+Entao("sistema me retorna informações do CPF") do
     expect(@servico.code).to eq(200)
 end
 
-Dado("que eu usuário do cpf {string} solicite consultar um documento de status {int} da categoria {int} multa preenchendo os campos dinâmicos {string}") do |string, int, int2, string2|
-    @servico = retorno.buscar_documento_pendente_filtrado_multa(string, int, int2, string2)
-end
+#ALGUNS EXEMPLOS DE VALIDAÇÕES
 
-Entao("sistema me retorna o documento específico de multa caso o mesmo exista") do
-    expect(@servico.code).to eq(200)
-end
-
-Dado("que eu usuário do cpf {string} solicite consultar um documento de status {int} da categoria {int} reserva preenchendo os campos dinâmicos {string} {int}") do |string, int, int2, string2, int3|
-    @servico = retorno.buscar_documento_pendente_filtrado_reserva(string, int, int2, string2, int3)
-end
-
-Entao("sistema me retorna o documento específico de reserva caso o mesmo exista") do
-    expect(@servico.code).to eq(200)
-end
-
-Dado("que eu usuário do cpf {string} solicite consultar um documento de status {int} da categoria {int} notadebito preenchendo os campos dinâmicos {string} {int}") do |string, int, int2, string2, int3|
-    @servico = retorno.buscar_documento_pendente_filtrado_notadebito(string, int, int2, string2, int3)
-end
-
-Entao("sistema me retorna o documento específico de notadebito caso o mesmo exista") do
-    expect(@servico.code).to eq(200)
-end
-
-Dado("que eu usuário do cpf {string} solicite consultar um documento de status {int} da categoria {int} ra preenchendo os campos dinâmicos {string} {int}") do |string, int, int2, string2, int3|
-    @servico = retorno.buscar_documento_pendente_filtrado_ra(string, int, int2, string2, int3)
-end
-
-Entao("sistema me retorna o documento específico de ra caso o mesmo exista") do
-    expect(@servico.code).to eq(200)
-end
-
-Dado("que eu usuário do cpf {string} solicite consultar um documento de status {int} da categoria {int} extratocobranca preenchendo os campos dinâmicos {string} {int} {int}") do |string, int, int2, string2, int3, int4|
-    @servico = retorno.buscar_documento_pendente_filtrado_extratocobranca(string, int, int2, string2, int3, int4)
-end
-
-Entao("sistema me retorna o documento específico de extratocobranca caso o mesmo exista") do
-    expect(@servico.code).to eq(200)
-end
-
-Dado("que eu usuário do cpf {string} solicite consultar um documento de status {int} da categoria {int} notacredito preenchendo os campos dinâmicos {string} {int}") do |string, int, int2, string2, int3|
-    @servico = retorno.buscar_documento_pendente_filtrado_notacredito(string, int, int2, string2, int3)
-end
-
-Entao("sistema me retorna o documento específico de notacredito caso o mesmo exista") do
-    expect(@servico.code).to eq(200)
-end
-
-Dado("que eu usuário do cpf {string} solicite consultar um documento de status {int} da categoria {int} ficha preenchendo os campos dinâmicos {string} {int}") do |string, int, int2, string2, int3|
-    @servico = retorno.buscar_documento_pendente_filtrado_ficha(string, int, int2, string2, int3)
-end
-  
-Entao("sistema me retorna o documento específico de ficha caso o mesmo exista") do
-    expect(@servico.code).to eq(200)
-end
+#expect(@servico.parsed_response.to_s).to include("abcd")
+#expect(@servico.parsed_response.to_s).not_to include("abcd") 
+#expect(@servico.parsed_response).to be true
+#expect(@servico.parsed_response).to be false
+#expect(@servico.body).not_to eq("abcd")
+#expect(@servico.empty?).to be false
