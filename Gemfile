@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'cucumber'
+gem 'rspec'
+gem 'capybara'
+gem 'httparty'
+gem 'pry'
+gem 'sqlserver'
+gem 'allure-cucumber'
+gem 'rubocop'

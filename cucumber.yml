@@ -1,0 +1,1 @@
+teste: ENV=homol PAR=homol AUT=homol --no-source --color --format pretty --format AllureCucumber::Formatter --out log/reports

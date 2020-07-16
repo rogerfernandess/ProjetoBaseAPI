@@ -1,0 +1,11 @@
+cert:
+  url_base_api: 
+homol:
+  banco:
+    host: 
+    database: 
+    databaseimg: 
+    user: 
+    password: 
+prod:
+  url_base_api:
